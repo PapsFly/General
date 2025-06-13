@@ -26,6 +26,8 @@ document.getElementById("save").onclick = async () => {
 
   const jsonFileName = `${DATA_FOLDER}/${categorie}_${Date.now()}.json`;
 
+  const encodedContent = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+
   const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${jsonFileName}`, {
     method: "PUT",
     headers: {
@@ -34,7 +36,7 @@ document.getElementById("save").onclick = async () => {
     },
     body: JSON.stringify({
       message: `Ajout ${categorie} - ${nom}`,
-      content: btoa(JSON.stringify(data, null, 2)),
+      content: encodedContent,
       branch: BRANCH
     })
   });
