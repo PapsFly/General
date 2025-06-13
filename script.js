@@ -1,61 +1,50 @@
-// Ton token inversé (exemple fictif : "ghp_ABC123456" devient "654321CBA_phg")
-const reversedToken = "Pl6RA2GK9ID8tTKHE4ZpCRQ0j3U9HRG4EYA_phg";
+const projects = [
+  {
+    title: "Présentation du projet Minecraft SAO",
+    description: "Dans le projet d’un serveur Sword Art Online, j’ai été développeur en charge des plugins personnalisés.",
+  },
+  {
+    title: "🎯 Rendu final du HUD",
+    description: "Voici le HUD final développé pour le serveur SAO à l’aide de MythicHUD.",
+    image: "Src/HUD au propre.png"
+  },
+  {
+    title: "👥 Plugin de gestion HUD de groupe",
+    description: "Système permettant de voir la vie des membres du groupe en HUD dynamique.",
+    image: "Src/HUD vie + HUD vie Groupe dynamique.png"
+  },
+  {
+    title: "🧭 Plugin de Quête Personnalisé",
+    description: "J’ai refait tout un système de quête avec suivi dynamique. Les dialogues étaient réalisés avec Luxe Dialogue.",
+    video: "Src/Affichage objectif Quete dynamque.mp4"
+  },
+  {
+    title: "⚔️ Système de Duel",
+    description: "Premier plugin : système de duel complet avec décompte et gestion d’enjeux pour se rapprocher de l’anime SAO.",
+    video: "Src/Systeme de duel + model timer.mp4"
+  }
+];
 
-// Fonction pour inverser la chaîne
-function reverseString(str) {
-  return str.split("").reverse().join("");
-}
+function openCategory() {
+  const container = document.getElementById("popupContainer");
+  const slideArea = document.getElementById("projectSlides");
+  slideArea.innerHTML = "";
 
-// Reconstituer le vrai token
-const GITHUB_TOKEN = reverseString(reversedToken);
-
-const REPO = "PapsFly/General";
-const BRANCH = "main";
-const DATA_FOLDER = "data";
-
-document.getElementById("addButton").onclick = () => {
-  document.getElementById("popup").classList.remove("hidden");
-};
-
-document.getElementById("close").onclick = () => {
-  document.getElementById("popup").classList.add("hidden");
-};
-
-document.getElementById("save").onclick = async () => {
-  const nom = document.getElementById("nom").value.trim();
-  const description = document.getElementById("description").value.trim();
-  const categorie = document.getElementById("categorie").value.trim();
-
-  const data = {
-    nom,
-    description,
-    categorie,
-    timestamp: Date.now()
-  };
-
-  const jsonFileName = `${DATA_FOLDER}/${categorie}_${Date.now()}.json`;
-
-  // Encodage en UTF-8 + Base64 (important pour les accents)
-  const encodedContent = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
-
-  const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${jsonFileName}`, {
-    method: "PUT",
-    headers: {
-      "Authorization": `token ${GITHUB_TOKEN}`,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      message: `Ajout ${categorie} - ${nom}`,
-      content: encodedContent,
-      branch: BRANCH
-    })
+  projects.forEach(proj => {
+    const div = document.createElement("div");
+    div.className = "project";
+    div.innerHTML = `
+      <h3>${proj.title}</h3>
+      <p>${proj.description}</p>
+      ${proj.image ? `<img src="${proj.image}" alt="${proj.title}" />` : ""}
+      ${proj.video ? `<video controls src="${proj.video}"></video>` : ""}
+    `;
+    slideArea.appendChild(div);
   });
 
-  if (res.ok) {
-    alert("✅ Fiche enregistrée dans le repo !");
-    document.getElementById("popup").classList.add("hidden");
-  } else {
-    alert("❌ Erreur : impossible d'enregistrer dans GitHub.");
-    console.error(await res.json());
-  }
-};
+  container.classList.remove("hidden");
+}
+
+function closePopup() {
+  document.getElementById("popupContainer").classList.add("hidden");
+}
