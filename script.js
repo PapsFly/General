@@ -1,4 +1,4 @@
-const GITHUB_TOKEN = "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"; // Remplace ici en local
+const GITHUB_TOKEN = "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"; // Remplace ici en local
 const REPO = "PapsFly/General";
 const BRANCH = "main";
 const DATA_FOLDER = "data";
