@@ -1,34 +1,60 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio de Nolan</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Portfolio Bizarre</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Mon Portfolio</h1>
-    <p>
-      Bienvenue sur mon portfolio ! J’ai perdu mes anciennes données à cause d’un crash disque, 
-      c’est pourquoi j’ai décidé de tout rassembler ici en ligne.<br />
-      Vous y trouverez principalement des projets réalisés sur <strong>s&box</strong> et <strong>Minecraft</strong>.
-      <br><br>
-      Compétences : Web, C, C#, Python, JavaScript.
-    </p>
-  </header>
+  <div class="container">
+    <div class="intro">
+      <h1>Bienvenue sur mon portfolio</h1>
+      <p>
+        Ce site me sert de portfolio. J’ai perdu toutes mes données à cause d’un crash PC, alors j’ai décidé de tout regrouper ici.<br>
+        Vous trouverez surtout des projets sur <strong>s&box</strong> et <strong>Minecraft</strong>.<br>
+        Mes compétences incluent : <strong>HTML/CSS, JS, Python, C, C#</strong>.
+      </p>
+    </div>
 
-  <main>
-    <section class="category">
-      <h2 onclick="openCategory()">📁 Minecraft</h2>
-    </section>
-  </main>
+    <div class="category" onclick="openCategory('minecraft')">
+      <h2>Minecraft</h2>
+    </div>
+  </div>
 
-  <!-- Popups -->
-  <div id="popupContainer" class="hidden">
-    <div class="popupContent">
-      <button class="close" onclick="closePopup()">✖</button>
-      <div id="projectSlides"></div>
+  <!-- Popup Minecraft -->
+  <div class="popup hidden" id="minecraft-popup">
+    <div class="popup-content scrollable">
+      <h2>Minecraft</h2>
+      <p>Dans le projet d’un serveur Sword Art Online, j’ai été développeur de plusieurs plugins personnalisés.</p>
+
+      <div class="project">
+        <h3>Rendu final HUD</h3>
+        <p>Voici le résultat final du HUD du serveur SAO réalisé avec Mythic HUD.</p>
+        <img src="Src/HUD au propre.png" alt="HUD final">
+      </div>
+
+      <div class="project">
+        <h3>Plugin gestion HUD de groupe</h3>
+        <p>Un système dynamique permettant d’afficher la vie de son groupe via HUD dans le serveur SAO.</p>
+        <img src="Src/HUD vie + HUD vie Groupe dynamique.png" alt="HUD groupe">
+      </div>
+
+      <div class="project">
+        <h3>Plugin de quêtes personnalisées</h3>
+        <p>
+          Refonte complète du système de quête dans le serveur SAO pour plus de clarté et de flexibilité. <br>
+          Intégration de Luxe Dialogue pour les dialogues NPC et suivi dynamique des objectifs.
+        </p>
+        <video src="Src/Affichage objectif Quete dynamque.mp4" controls></video>
+      </div>
+
+      <div class="project">
+        <h3>Système de duel</h3>
+        <p>Création d’un système de duel fidèle à l’anime SAO, avec décompte, pari d’objets, etc.</p>
+        <video src="Src/Systeme de duel + model timer.mp4" controls></video>
+      </div>
+
+      <button onclick="closePopup('minecraft-popup')">Fermer</button>
     </div>
   </div>
 
