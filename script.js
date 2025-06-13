@@ -1,5 +1,5 @@
 // Ton token inversé (exemple fictif : "ghp_ABC123456" devient "654321CBA_phg")
-const reversedToken = "654321CBA_phg";
+const reversedToken = "Pl6RA2GK9ID8tTKHE4ZpCRQ0j3U9HRG4EYA_phg";
 
 // Fonction pour inverser la chaîne
 function reverseString(str) {
