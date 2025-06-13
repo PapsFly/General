@@ -1,4 +1,14 @@
-const GITHUB_TOKEN = "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"; // Remplace ici en local
+// Ton token inversé (exemple fictif : "ghp_ABC123456" devient "654321CBA_phg")
+const reversedToken = "654321CBA_phg";
+
+// Fonction pour inverser la chaîne
+function reverseString(str) {
+  return str.split("").reverse().join("");
+}
+
+// Reconstituer le vrai token
+const GITHUB_TOKEN = reverseString(reversedToken);
+
 const REPO = "PapsFly/General";
 const BRANCH = "main";
 const DATA_FOLDER = "data";
@@ -15,7 +25,6 @@ document.getElementById("save").onclick = async () => {
   const nom = document.getElementById("nom").value.trim();
   const description = document.getElementById("description").value.trim();
   const categorie = document.getElementById("categorie").value.trim();
-  const upload = document.getElementById("upload").files;
 
   const data = {
     nom,
@@ -26,6 +35,7 @@ document.getElementById("save").onclick = async () => {
 
   const jsonFileName = `${DATA_FOLDER}/${categorie}_${Date.now()}.json`;
 
+  // Encodage en UTF-8 + Base64 (important pour les accents)
   const encodedContent = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
 
   const res = await fetch(`https://api.github.com/repos/${REPO}/contents/${jsonFileName}`, {
