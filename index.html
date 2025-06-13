@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Portfolio Bizarre</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <button id="addButton">+</button>
+    <div id="categories"></div>
+  </div>
+
+  <div id="popup" class="popup hidden">
+    <div class="popup-content">
+      <h2>Ajouter un élément</h2>
+      <input type="text" id="nom" placeholder="Nom">
+      <textarea id="description" placeholder="Description"></textarea>
+      <input type="text" id="categorie" placeholder="Catégorie">
+      <input type="file" id="upload" multiple>
+      <button id="save">Enregistrer</button>
+      <button id="close">Fermer</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
