@@ -9,52 +9,173 @@
   <div class="container">
     <div class="intro">
       <h1>Portfolio 2025</h1>
-      <p><br>
-        Vous trouverez surtout des projets sur <strong>s&box</strong> et <strong>Minecraft</strong>.<br>
-        Mes compétences incluent : <strong>HTML/CSS, JS, Python, C, C#</strong>.<br> <br>
+      <p>
+        Vous trouverez principalement des projets sur <strong>s&box</strong> et <strong>Minecraft</strong>.<br>
+        Compétences : <strong>HTML/CSS, JS, Python, C, C#</strong>.<br><br>
         Discord : ryuskoo (Mister.Maverick)
       </p>
     </div>
 
-    <div class="category" onclick="openCategory('minecraft')">
-      <h2>Minecraft</h2>
+    <div class="categories">
+      <div class="category" onclick="openCategory('minecraft')">
+        <h2>Minecraft</h2>
+      </div>
+      <div class="category" onclick="openCategory('sbox')">
+        <h2>S&box</h2>
+      </div>
     </div>
   </div>
 
   <!-- Popup Minecraft -->
   <div class="popup hidden" id="minecraft-popup">
-    <div class="popup-content scrollable">
-      <h2>Minecraft</h2>
-      <p>Projet Serveur Sword Art Online Minecraft</p>
+    <div class="popup-content">
 
-      <div class="project">
+      <div class="project-block">
+        <h2 style="text-align: center;">Minecraft</h2>
+      </div>
+
+      <div class="project-block">
         <h3>Rendu final HUD</h3>
-        <p>Voici le résultat final du HUD du serveur SAO réalisé avec Mythic HUD.</p>
+        <p>Version finale du HUD style Sword Art Online, réalisé avec le plugin Mythic HUD</p>
         <img src="Src/HUD au propre.png" alt="HUD final">
       </div>
 
-      <div class="project">
+      <div class="project-block">
         <h3>Plugin gestion HUD de groupe</h3>
-        <p>Un système dynamique permettant d’afficher la vie de son groupe via HUD dans le serveur SAO.</p>
+        <p>Ce plugin permet un affichage dynamique de la vie de chaque membre d’un groupe. Il récupère les informations via des appels à MMO Core.</p>
         <img src="Src/HUD vie + HUD vie Groupe dynamique.png" alt="HUD groupe">
       </div>
 
-      <div class="project">
+      <div class="project-block">
         <h3>Plugin de quêtes personnalisées</h3>
-        <p>
-          Creation d'un système de quête dans le serveur SAO + facile pour cree des quetes et des dialogues. <br>
-          Intégration de Luxe Dialogue pour les dialogues NPC et suivi dynamique des objectifs.
-        </p>
+        <p>Développement d’un système de quêtes avec dialogues personnalisés via LuxDialogues. Ce système permet le suivi dynamique d’objectifs.</p>
         <video src="Src/Affichage objectif Quete dynamque.mp4" controls></video>
       </div>
 
-      <div class="project">
+      <div class="project-block">
         <h3>Système de duel</h3>
-        <p>Création d’un système de duel fidèle à l’anime SAO, avec décompte, pari d’objets, etc.</p>
+        <p>Création d’un système de duel inspiré de Sword Art Online : décompte avant combat, mise en jeu d’objets, etc.</p>
         <video src="Src/systeme de duel.mp4" controls></video>
       </div>
+    </div>
+  </div>
 
-      <button onclick="closePopup('minecraft-popup')">Fermer</button>
+  <!-- Popup S&box -->
+  <div class="popup hidden" id="sbox-popup">
+    <div class="popup-content">
+      <div class="project-block" >
+        <h2 style="text-align: center;">S&box</h2>
+      </div>
+      <div class="subcategories">
+        <div class="subcategory" onclick="openCategory('tron')">Tron Game</div>
+        <div class="subcategory" onclick="openCategory('procedural')">Procedural</div>
+        <div class="subcategory" onclick="openCategory('weapon')">Weapon</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup Tron -->
+  <div class="popup hidden" id="tron-popup">
+    <div class="popup-content">
+
+      <div class="project-block">
+        <h2 style="text-align: center;">Tron Game</h2>
+        <p class="intro-text">
+          Tron Game est un jeu S&box développé pour le Game Jam de Facepunch. Il s’agit d’un jeu multi en 3D inspiré de l’univers du film Tron.
+        </p>
+      </div>
+
+      <div class="project-block">
+        <h3>Tron Game Online</h3>
+        <p>Ajout de la synchronisation multijoueur, destruction des joueurs en cas de contact avec une traînée adverse, et ajout des textures de la map.</p>
+        <video src="Src/s&box/Tron game/test Tron game online.mp4" controls></video>
+      </div>
+
+      <div class="project-block">
+        <h3>Chat</h3>
+        <p>Implémentation d'un chat pour discuter entre joueurs (et exécuter des commandes admin).</p>
+        <video src="Src/s&box/Tron game/Chat tron game .mp4" controls></video>
+      </div>
+
+      <div class="project-block">
+        <h3>Trainée & Physique</h3>
+        <p>Ajout de la traînée derrière les motos, détection de collisions avec celle-ci, et amélioration de la physique du monde.</p>
+        <video src="Src/s&box/Tron game/Creation trainé + collide trainé tron game.mp4" controls></video>
+      </div>
+
+      <div class="project-block">
+        <h3>Déplacement moto & map</h3>
+        <p>Amélioration de la conduite des motos, ajout d’une voiture pour d'autres gameplays potentiels, et création d’une map fidèle à l’univers de Tron.</p>
+        <video src="Src/s&box/Tron game/Deplacement moto 2.mp4" controls></video>
+      </div>
+
+      <div class="project-block">
+        <h3>Modèle moto & premiers déplacements</h3>
+        <p>Ajout d’un modèle 3D de moto inspiré de Tron + premiers contrôles de déplacement.</p>
+        <video src="Src/s&box/Tron game/Deplacement moto 1.mp4" controls></video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup Weapon -->
+  <div class="popup hidden" id="weapon-popup">
+    <div class="popup-content">
+      <div class="project-block">
+        <h2 style="text-align: center;" >Weapon</h2>
+        <p class="intro-text">Développement rapide d'armes à feu dans S&box</p>
+      </div>
+
+      <div class="project-block">
+        <h3>Sync Tir & Vie joueur</h3>
+        <p>Ajout de dégâts lors d’un tir sur un joueur (multijoueur).</p>
+        <video src="Src/s&box/Weapon/tire baisse vie player.mp4" controls></video>
+      </div>
+
+      <div class="project-block">
+        <h3>Inventaire & ramassage</h3>
+        <p>Ajout du ramassage d’armes au sol, ajout à l’inventaire, avec changement de vue via la molette (vue 3e personne & changement d’arme).</p>
+        <video src="Src/s&box/Weapon/inventaire + rammassage arme + tire.mp4" controls></video>
+      </div>
+
+      <div class="project-block">
+        <h3>Inventaire</h3>
+        <p>Ajout d’un inventaire affiché en HUD, avec taille dynamique ajustable.</p>
+        <video src="Src/s&box/Weapon/inventaire.mp4" controls></video>
+      </div>
+
+      <div class="project-block">
+        <h3>HUD de vie</h3>
+        <p>Ajout d’un HUD de vie dynamique selon la vie du joueur.</p>
+        <video src="Src/s&box/Weapon/Vie + HUD dynamique.mp4" controls></video>
+      </div>
+
+      <div class="project-block">
+        <h3>Arme première personne</h3>
+        <p>Ajout d’une arme en première personne + création d’un raycast aligné au viseur et à l’arme, avec détection de collisions.</p>
+        <video src="Src/s&box/Weapon/tire detecté player.mp4" controls></video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup Procedural -->
+  <div class="popup hidden" id="procedural-popup">
+    <div class="popup-content">
+      <div class="project-block">
+        <h2 style="text-align: center;">Procedural</h2>
+        <p class="intro-text">Conception d'un niveau qui se génère procéduralement (pour un futur Donjon Crawler)</p>
+      </div>
+
+      <div class="project-block">
+        <h3>Procedural Demo 2</h3>
+        <p>Ajout de textures sur sol et murs + ajout d’un toit. Correction : escaliers inversés qui bloquaient le joueur.</p>
+        <video src="Src/s&box/Procedural/Procedural_demo_V2.mp4" controls></video>
+      </div>
+
+      <div class="project-block">
+        <h3>Procedural Demo 1</h3>
+        <p>système procédural de génération de labyrinthe 3D,sur plusieurs etages et d' escaliers pour passer d un étage à l’autre. Chaque sol est placée selon une logique semi aléatoire, tout en maintenant une structure cohérente.</p>
+        <video src="Src/s&box/Procedural/procedural_demo.mp4" controls></video>
+      </div>
     </div>
   </div>
 
